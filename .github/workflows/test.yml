@@ -19,9 +19,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install .[dev]
+        run: python -m pip install --upgrade pip
+      - name: Install package (editable)
+        run: pip install -e .[dev]
       - name: Run tests
-        run: pytest
-        working-directory: ${{ github.workspace }} 
+        run: pytest 
