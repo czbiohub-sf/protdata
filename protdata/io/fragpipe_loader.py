@@ -52,8 +52,8 @@ def read_fragpipe(
     # Build X matrix (proteins x samples)
     X = df[intensity_cols].to_numpy(dtype=np.float32).T
     # If there are more intensity suffixes we store them as layers
+    layers = {}
     if len(intensity_column_suffixes) > 1:
-        layers = {}
         for suffix in intensity_column_suffixes[1:]:
             suffix_cols = [
                 col

@@ -54,9 +54,10 @@ def read_maxquant(
 
     # Build X matrix (proteins x samples)
     X = df[intensity_cols].to_numpy(dtype=np.float32).T
+
     # If there are more intensity suffixes we store them as layers
+    layers = {}
     if len(intensity_column_prefixes) > 1:
-        layers = {}
         for prefix in intensity_column_prefixes[1:]:
             prefix_cols = [
                 col
@@ -85,5 +86,6 @@ def read_maxquant(
     uns = {"Search_Engine": "MaxQuant"}
 
     # Create AnnData
+    print(layers)
     adata = ad.AnnData(X=X, obs=obs, var=var, layers=layers, uns=uns)
     return adata
