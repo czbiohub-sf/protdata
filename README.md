@@ -8,7 +8,8 @@ This package provides loader functions to import proteomics data (e.g., MaxQuant
 - Load MaxQuant output into AnnData
 - Designed for extensibility (other loaders coming soon)
 
-## Installation```bash
+## Installation
+```bash
 pip install protdata
 ```
 
