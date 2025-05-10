@@ -86,6 +86,5 @@ def read_maxquant(
     uns = {"Search_Engine": "MaxQuant"}
 
     # Create AnnData
-    print(layers)
     adata = ad.AnnData(X=X, obs=obs, var=var, layers=layers, uns=uns)
     return adata
