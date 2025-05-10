@@ -1,5 +1,7 @@
 # protdata
 
+[![Test](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml/badge.svg)](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml)
+
 Proteomics data loaders for the [AnnData](https://anndata.readthedocs.io/) format.
 
 This package provides loader functions to import proteomics data (e.g., MaxQuant) into the AnnData structure for downstream analysis and integration with single-cell and multi-omics workflows.
