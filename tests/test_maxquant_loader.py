@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from protdata.io import load_maxquant_to_anndata
+from protdata.io.maxquant_loader import read_maxquant
 
 
 def test_load_maxquant_to_anndata():
@@ -11,10 +11,10 @@ def test_load_maxquant_to_anndata():
         "LFQ intensity SampleB": [150.0, 250.0],
     }
     df = pd.DataFrame(data)
-    adata = load_maxquant_to_anndata(df)
+    adata = read_maxquant(df, intensity_column_prefixes=["LFQ intensity "])
     assert adata.shape == (2, 2)  # 2 proteins x 2 samples
     np.testing.assert_array_equal(
-        adata.X, np.array([[100.0, 150.0], [200.0, 250.0]], dtype=np.float32)
+        adata.X, np.array([[100.0, 150.0], [200.0, 250.0]], dtype=np.float32).T
     )
     assert list(adata.var.index) == ["P1", "P2"]
     assert list(adata.obs.index) == ["SampleA", "SampleB"]
