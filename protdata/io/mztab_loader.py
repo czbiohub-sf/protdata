@@ -12,16 +12,20 @@ def read_mztab(
     """
     Load mzTab protein table into an AnnData object.
 
-    Args:
-        file: Path to mzTab file or a pandas DataFrame (protein table).
-        intensity_column_prefix: Prefix for intensity columns (default: 'protein_abundance_').
-        index_column: Column indicating the protein groups (default: 'accession').
+    Parameters
+    ----------
+    file
+        Path to mzTab file or a pandas DataFrame containing the protein table.
+    index_column
+        Column indicating the protein groups.
 
-    Returns:
+    Returns
+    -------
+    anndata.AnnData
         AnnData object with:
             - X: intensity matrix (proteins x samples)
-            - var: protein metadata
-            - obs: sample metadata
+            - var: protein metadata (indexed by protein accession)
+            - obs: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
         df = file.copy()
@@ -54,7 +58,7 @@ def read_mztab(
     obs.index = obs.index.astype(str)
 
     # Build uns
-    uns = {"Search_Engine": df.search_engine.iloc[0]}
+    uns = {"RawInfo": {"Search_Engine": df.search_engine.iloc[0]}}
 
     # Create AnnData
     adata = ad.AnnData(X=X, obs=obs, var=var, uns=uns)

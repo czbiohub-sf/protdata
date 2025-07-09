@@ -20,18 +20,28 @@ def read_maxquant(
     """
     Load MaxQuant proteinGroups.txt into an AnnData object.
 
-    Args:
-        file: Path to proteinGroups.txt or a pandas DataFrame.
-        intensity_column_prefix: Prefix for intensity columns (default: 'LFQ intensity ').
-        index_column: Column name for protein IDs (default: 'Protein IDs').
-        gene_names_column: Column name for gene names (default: 'Gene names').
-        sep: File separator (default: tab).
+    Parameters
+    ----------
+    file
+        Path to the MaxQuant proteinGroups.txt file or a pandas DataFrame containing the data.
+    intensity_column_prefixes
+        Prefix(es) for intensity columns to extract.
+        The first prefix is used for the main matrix (X), others are stored as layers if present.
+    index_column
+        Column name to use as protein index.
+    filter_columns
+        Columns to use for filtering out contaminants or unwanted entries.
+    sep
+        File separator if reading from file.
 
-    Returns:
+    Returns
+    -------
+    anndata.AnnData
         AnnData object with:
-            - X: intensity matrix (proteins x samples)
-            - var: protein metadata
-            - obs: sample metadata
+            - X: intensity matrix (samples x proteins)
+            - var: protein metadata (indexed by protein IDs)
+            - obs: sample metadata (indexed by sample names)
+            - layers: additional intensity matrices if multiple intensity column prefixes are provided
     """
     if isinstance(intensity_column_prefixes, str):
         intensity_column_prefixes = [intensity_column_prefixes]
@@ -83,7 +93,12 @@ def read_maxquant(
     obs = pd.DataFrame(index=sample_names)
 
     # Build uns
-    uns = {"Search_Engine": "MaxQuant"}
+    uns = {
+        "RawInfo": {
+            "Search_Engine": "MaxQuant",
+            "filter_columns": filter_columns,
+        },
+    }
 
     # Create AnnData
     adata = ad.AnnData(X=X, obs=obs, var=var, layers=layers, uns=uns)

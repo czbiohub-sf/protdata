@@ -16,21 +16,28 @@ def read_fragpipe(
     sep: str = "\t",
 ) -> ad.AnnData:
     """
-    Load FragPipe-Philosopher protein group matrix into an AnnData object.
+    Load a FragPipe protein group matrix into an AnnData object.
 
-    Args:
-        file: Path to combined_protein.tsv or a pandas DataFrame.
-        intensity_column_prefix: Prefix for intensity columns (default: '[sample] MaxLFQ Intensity ').
-        index_column: Column name for protein IDs (default: 'Protein').
-        gene_names_column: Column name for gene names (default: 'Gene Names').
-        confidence_column: Column name for protein probability (default: 'Protein Probability').
-        sep: File separator (default: tab).
+    Parameters
+    ----------
+    file
+        Path to the FragPipe combined_protein.tsv file or a pandas DataFrame containing the data.
+    intensity_column_suffixes
+        Suffix(es) for intensity columns to extract.
+        The first suffix is used for the main matrix (X), others are stored as layers if present.
+    index_column
+        Column name to use as protein index.
+    sep
+        File separator if reading from file.
 
-    Returns:
+    Returns
+    -------
+    anndata.AnnData
         AnnData object with:
-            - X: intensity matrix (proteins x samples)
-            - var: protein metadata
-            - obs: sample metadata
+            - X: intensity matrix (samples x proteins)
+            - var: protein metadata (indexed by protein IDs)
+            - obs: sample metadata (indexed by sample names)
+            - layers: additional intensity matrices if multiple intensity column suffixes are provided
     """
     if isinstance(intensity_column_suffixes, str):
         intensity_column_suffixes = [intensity_column_suffixes]
@@ -79,7 +86,11 @@ def read_fragpipe(
     obs = pd.DataFrame(index=sample_names)
 
     # Build uns
-    uns = {"Search_Engine": "FragPipe_Philosopher"}
+    uns = {
+        "RawInfo": {
+            "Search_Engine": "FragPipe",
+        },
+    }
 
     # Create AnnData
     adata = ad.AnnData(X=X, obs=obs, var=var, layers=layers)

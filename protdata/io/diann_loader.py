@@ -13,17 +13,22 @@ def read_diann(
     """
     Load DIA-NN protein group matrix (report.pg_matrix.tsv) into an AnnData object.
 
-    Args:
-        file: Path to DIA-NN report.pg_matrix.tsv or a pandas DataFrame.
-        intensity_suffix: Suffix for intensity columns (default: '_Intensity').
-        index_column: Column name for protein group IDs (default: 'Protein.Group').
-        sep: File separator (default: tab).
+    Parameters
+    ----------
+    file
+        Path to DIA-NN report.pg_matrix.tsv file or a pandas DataFrame containing the data.
+    index_column
+        Column name for protein group IDs.
+    sep
+        File separator.
 
-    Returns:
+    Returns
+    -------
+    anndata.AnnData
         AnnData object with:
-            - X: intensity matrix (proteins x samples)
-            - var: protein metadata
-            - obs: sample metadata
+            - X: intensity matrix (samples x proteins)
+            - var: protein metadata (indexed by protein group IDs)
+            - obs: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
         df = file.copy()
@@ -72,7 +77,11 @@ def read_diann(
     obs = pd.DataFrame(index=intensity_cols)
 
     # Build uns
-    uns = {"Search_Engine": "DIANN"}
+    uns = {
+        "RawInfo": {
+            "Search_Engine": "DIANN",
+        },
+    }
 
     # Create AnnData
     adata = ad.AnnData(X=X, obs=obs, var=var)
