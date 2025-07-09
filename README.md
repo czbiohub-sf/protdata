@@ -7,8 +7,9 @@ Proteomics data loaders for the [AnnData](https://anndata.readthedocs.io/) forma
 This package provides loader functions to import proteomics data (e.g., MaxQuant) into the AnnData structure for downstream analysis and integration with single-cell and multi-omics workflows.
 
 ## Features
-- Load MaxQuant output into AnnData
-- Designed for extensibility (other loaders coming soon)
+
+- **Multiple formats**: Support for MaxQuant, FragPipe, DIA-NN, and mzTab files
+- **Reads metadata**: Automatically extracts and organizes sample and protein metadata
 
 ## Installation
 ```bash
