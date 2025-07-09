@@ -58,7 +58,7 @@ def read_mztab(
     obs.index = obs.index.astype(str)
 
     # Build uns
-    uns = {"RawInfo": {"Search_Engine": df.search_engine.iloc[0]}}
+    uns = {"RawInfo": {"Search_Engine": str(df.search_engine.iloc[0])}}
 
     # Create AnnData
     adata = ad.AnnData(X=X, obs=obs, var=var, uns=uns)
