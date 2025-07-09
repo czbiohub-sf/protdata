@@ -7,7 +7,11 @@ import warnings
 
 def read_maxquant(
     file: Union[str, pd.DataFrame],
-    intensity_column_prefixes: List[str] | str = ["LFQ intensity ", "Intensity "],
+    intensity_column_prefixes: List[str] | str = [
+        "LFQ intensity ",
+        "Intensity ",
+        "MS/MS count ",
+    ],
     index_column: str = "Protein IDs",
     filter_columns: list[str] = [
         "Only identified by site",
@@ -75,7 +79,10 @@ def read_maxquant(
                 if col in [prefix + sample_name for sample_name in sample_names]
             ]
             if len(prefix_cols) == len(sample_names):
-                layers[prefix.strip()] = df[prefix_cols].to_numpy(dtype=np.float32).T
+                # Cannot have '/' in the key (hdf5 interprets as a group for serialization)
+                layers[prefix.strip().replace("/", "_")] = (
+                    df[prefix_cols].to_numpy(dtype=np.float32).T
+                )
             else:
                 warnings.warn(
                     f"Number of columns for prefix '{prefix}' does not match number of samples."
