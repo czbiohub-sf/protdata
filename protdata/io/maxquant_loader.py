@@ -3,6 +3,7 @@ import numpy as np
 import anndata as ad
 from typing import Optional, Union, List
 import warnings
+from .utils import cleanup_obsvar
 
 
 def read_maxquant(
@@ -95,9 +96,11 @@ def read_maxquant(
     )
     var = df.loc[:, ~sample_columns].copy()
     var.index = df[index_column]
+    var = cleanup_obsvar(var)
 
     # Build obs (samples)
     obs = pd.DataFrame(index=sample_names)
+    obs = cleanup_obsvar(obs)
 
     # Build uns
     uns = {

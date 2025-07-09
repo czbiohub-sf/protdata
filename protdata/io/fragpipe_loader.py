@@ -3,6 +3,7 @@ import numpy as np
 import anndata as ad
 from typing import Union
 import warnings
+from .utils import cleanup_obsvar
 
 
 def read_fragpipe(
@@ -81,9 +82,11 @@ def read_fragpipe(
     )
     var = df.loc[:, ~sample_columns].copy()
     var.index = df[index_column]
+    var = cleanup_obsvar(var)
 
     # Build obs (samples)
     obs = pd.DataFrame(index=sample_names)
+    obs = cleanup_obsvar(obs)
 
     # Build uns
     uns = {

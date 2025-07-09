@@ -3,6 +3,7 @@ import numpy as np
 import anndata as ad
 from typing import Union
 from pyteomics import mztab
+from .utils import cleanup_obsvar
 
 
 def read_mztab(
@@ -51,11 +52,13 @@ def read_mztab(
     # Build var (proteins)
     var = df.drop(columns=intensity_cols).copy()
     var.index = df[index_column].astype(str)
+    var = cleanup_obsvar(var)
 
     # Build obs (samples)
     obs = pd.DataFrame.from_dict(tables.study_variables, orient="index")
     obs.index.name = "sample"
     obs.index = obs.index.astype(str)
+    obs = cleanup_obsvar(obs)
 
     # Build uns
     uns = {"RawInfo": {"Search_Engine": str(df.search_engine.iloc[0])}}

@@ -3,6 +3,7 @@ import numpy as np
 import anndata as ad
 from typing import Union
 import os
+from .utils import cleanup_obsvar
 
 
 def read_diann(
@@ -72,9 +73,11 @@ def read_diann(
     # Build var (proteins)
     var = df[df.columns.intersection(no_sample_column, sort=False)].copy()
     var.index = df[index_column]
+    var = cleanup_obsvar(var)
 
     # Build obs (samples)
     obs = pd.DataFrame(index=intensity_cols)
+    obs = cleanup_obsvar(obs)
 
     # Build uns
     uns = {
