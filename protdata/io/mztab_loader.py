@@ -24,9 +24,10 @@ def read_mztab(
     -------
     anndata.AnnData
         AnnData object with:
-            - X: intensity matrix (proteins x samples)
-            - var: protein metadata (indexed by protein accession)
-            - obs: sample metadata (indexed by sample names)
+
+        - X: intensity matrix (proteins x samples)
+        - var: protein metadata (indexed by protein accession)
+        - obs: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
         df = file.copy()

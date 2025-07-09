@@ -35,10 +35,11 @@ def read_fragpipe(
     -------
     anndata.AnnData
         AnnData object with:
-            - X: intensity matrix (samples x proteins)
-            - var: protein metadata (indexed by protein IDs)
-            - obs: sample metadata (indexed by sample names)
-            - layers: additional intensity matrices if multiple intensity column suffixes are provided
+
+        - X: intensity matrix (samples x proteins)
+        - var: protein metadata (indexed by protein IDs)
+        - obs: sample metadata (indexed by sample names)
+        - layers: additional intensity matrices if multiple intensity column suffixes are provided
     """
     if isinstance(intensity_column_suffixes, str):
         intensity_column_suffixes = [intensity_column_suffixes]
