@@ -27,6 +27,7 @@ master_doc = "index"
 default_role = "literal"
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
 pygments_style = "sphinx"
+html_favicon = "_static/img/protdata_favicon.svg"
 
 extensions = [
     "myst_nb",
