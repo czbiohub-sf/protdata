@@ -1,8 +1,10 @@
-import pandas as pd
-import numpy as np
-import anndata as ad
-from typing import Union
 import os
+from typing import Union
+
+import anndata as ad
+import numpy as np
+import pandas as pd
+
 from .utils import cleanup_obsvar
 
 
@@ -53,9 +55,11 @@ def read_diann(
     ]
 
     df.columns = [
-        os.path.basename(col)
-        if isinstance(col, str) and col not in no_sample_column
-        else str(col)
+        (
+            os.path.basename(col)
+            if isinstance(col, str) and col not in no_sample_column
+            else str(col)
+        )
         for col in df.columns
     ]
 
@@ -66,7 +70,7 @@ def read_diann(
     # Find intensity columns (all columns not in no_sample_column)
     intensity_cols = df.columns.difference(no_sample_column, sort=False).tolist()
     if not intensity_cols:
-        raise ValueError(f"No intensity columns found.")
+        raise ValueError("No intensity columns found.")
 
     # Build X matrix (proteins x samples)
     X = df[intensity_cols].to_numpy(dtype=np.float32).T

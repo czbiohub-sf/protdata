@@ -1,8 +1,10 @@
-import pandas as pd
-import numpy as np
-import anndata as ad
 from typing import Union
+
+import anndata as ad
+import numpy as np
+import pandas as pd
 from pyteomics import mztab
+
 from .utils import cleanup_obsvar
 
 
@@ -41,11 +43,8 @@ def read_mztab(
     ]
     if not intensity_cols:
         raise ValueError(
-            f"No columns starting with 'protein_abundance_study_variable' found."
+            "No columns starting with 'protein_abundance_study_variable' found."
         )
-
-    # Extract sample names from intensity columns
-    sample_names = [col.split("[")[1].split("]")[0] for col in intensity_cols]
 
     # Build X matrix (proteins x samples)
     X = df[intensity_cols].to_numpy(dtype=np.float32).T

@@ -1,8 +1,12 @@
-import pandas as pd
-import numpy as np
-import anndata as ad
-from typing import Optional, Union, List
+from __future__ import annotations
+
 import warnings
+from typing import List, Union
+
+import anndata as ad
+import numpy as np
+import pandas as pd
+
 from .utils import cleanup_obsvar
 
 
