@@ -16,6 +16,15 @@ This package provides loader functions to import proteomics data (e.g., MaxQuant
 pip install protdata
 ```
 
+Or install from source:
+```bash
+git clone https://github.com/czbiohub-sf/protdata.git
+cd protdata
+pip install -e . # or make setup-develop for developers
+```
+
+Protdata has minimal dependencies listed in [pyproject.toml](pyproject.toml)
+
 ## Usage Example
 
 ### MaxQuant Import
