@@ -11,8 +11,11 @@ repos:
       - id: check-symlinks
       - id: debug-statements
       - id: trailing-whitespace
+        exclude: ^data/
       - id: mixed-line-ending
+        exclude: ^data/
       - id: end-of-file-fixer
+        exclude: ^data/
       - id: requirements-txt-fixer
 
   - repo: https://github.com/pre-commit/pygrep-hooks
