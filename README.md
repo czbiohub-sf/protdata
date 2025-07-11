@@ -1,6 +1,8 @@
 # protdata
 
 [![Test](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml/badge.svg)](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml)
+![PyPI - Version](https://img.shields.io/pypi/v/protdata)
+[![docs online](https://img.shields.io/badge/docs-online-blue)](https://protdata-czbiohub.vercel.app/)
 
 Proteomics data loaders for the [AnnData](https://anndata.readthedocs.io/) format.
 
