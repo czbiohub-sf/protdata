@@ -52,7 +52,7 @@ print(adata)
 
 ### FragPipe Import
 
-You can download an example FragPipe output [file here](https://github.com/Nesvilab/philosopher/blob/master/testdata/combined_protein.tsv?raw=true)
+You can download an example FragPipe output [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/combined_protein.tsv)
 
 ```python
 from protdata.io import read_fragpipe
