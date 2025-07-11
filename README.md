@@ -60,6 +60,13 @@ from protdata.io import read_mztab
 adata = read_mztab("/path/to/SILAC_SQ.mzTab")
 print(adata)
 ```
+## Authors
+
+`protdata` is created and maintained by the [Computational Biology Platform](https://www.czbiohub.org/comp-biology/) at the [Chan Zuckerberg Biohub San Francisco](https://www.czbiohub.org/sf/).
+
+To get in touch please use the [GihHub issues](https://github.com/czbiohub-sf/protdata/issues) page.
+
+
 
 
 
