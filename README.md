@@ -31,7 +31,7 @@ Protdata has minimal dependencies listed in [pyproject.toml](pyproject.toml)
 
 ### MaxQuant Import
 
-You can download an example proteinGroups [file here](https://zenodo.org/records/3774452/files/MaxQuant_Protein_Groups.tabular?download=1)
+You can download an example proteinGroups [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/proteinGroups.txt)
 ```python
 import protdata
 
@@ -41,7 +41,7 @@ print(adata)
 
 ### DIA-NN Import
 
-You can download an example DIA-NN report [file here](https://github.com/vdemichev/DiaNN/raw/master/diann-output-examples/report.pg_matrix.tsv)
+You can download an example DIA-NN report [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/report.pg_matrix.tsv)
 
 ```python
 from protdata.io import read_diann
@@ -63,7 +63,7 @@ print(adata)
 
 ### mzTab Import
 
-You can download an example mzTab [file here](https://raw.githubusercontent.com/HUPO-PSI/mzTab/refs/heads/master/examples/1_0-Proteomics-Release/SILAC_SQ.mzTab)
+You can download an example mzTab [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/SILAC_SQ.mzTab)
 
 ```python
 from protdata.io import read_mztab
