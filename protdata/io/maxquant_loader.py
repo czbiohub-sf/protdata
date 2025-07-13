@@ -45,13 +45,12 @@ def read_maxquant(
 
     Returns
     -------
-    anndata.AnnData
-        AnnData object with:
+    :class:`anndata.AnnData` object with:
 
-        - X: intensity matrix (samples x proteins)
-        - var: protein metadata (indexed by protein IDs)
-        - obs: sample metadata (indexed by sample names)
-        - layers: additional intensity matrices if multiple intensity column prefixes are provided
+        - ``X``: intensity matrix (samples x proteins)
+        - ``var``: protein metadata (indexed by protein IDs)
+        - ``obs``: sample metadata (indexed by sample names)
+        - ``layers``: additional intensity matrices if multiple intensity column prefixes are provided
     """
     if isinstance(intensity_column_prefixes, str):
         intensity_column_prefixes = [intensity_column_prefixes]

@@ -1,8 +1,10 @@
-import pandas as pd
-import numpy as np
-import anndata as ad
-from typing import Union
 import warnings
+from typing import Union
+
+import anndata as ad
+import numpy as np
+import pandas as pd
+
 from .utils import cleanup_obsvar
 
 
@@ -33,13 +35,12 @@ def read_fragpipe(
 
     Returns
     -------
-    anndata.AnnData
-        AnnData object with:
+    :class:`anndata.AnnData` object with:
 
-        - X: intensity matrix (samples x proteins)
-        - var: protein metadata (indexed by protein IDs)
-        - obs: sample metadata (indexed by sample names)
-        - layers: additional intensity matrices if multiple intensity column suffixes are provided
+        - ``X``: intensity matrix (samples x proteins)
+        - ``var``: protein metadata (indexed by protein IDs)
+        - ``obs``: sample metadata (indexed by sample names)
+        - ``layers``: additional intensity matrices if multiple intensity column suffixes are provided
     """
     if isinstance(intensity_column_suffixes, str):
         intensity_column_suffixes = [intensity_column_suffixes]

@@ -24,12 +24,11 @@ def read_mztab(
 
     Returns
     -------
-    anndata.AnnData
-        AnnData object with:
+    :class:`anndata.AnnData` object with:
 
-        - X: intensity matrix (proteins x samples)
-        - var: protein metadata (indexed by protein accession)
-        - obs: sample metadata (indexed by sample names)
+        - ``X``: intensity matrix (samples x proteins)
+        - ``var``: protein metadata (indexed by protein accession)
+        - ``obs``: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
         df = file.copy()

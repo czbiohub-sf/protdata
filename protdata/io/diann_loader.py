@@ -27,12 +27,11 @@ def read_diann(
 
     Returns
     -------
-    anndata.AnnData
-        AnnData object with:
+    :class:`anndata.AnnData` object with:
 
-        - X: intensity matrix (samples x proteins)
-        - var: protein metadata (indexed by protein group IDs)
-        - obs: sample metadata (indexed by sample names)
+        - ``X``: intensity matrix (samples x proteins)
+        - ``var``: protein metadata (indexed by protein group IDs)
+        - ``obs``: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
         df = file.copy()
