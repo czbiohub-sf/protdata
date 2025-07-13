@@ -79,3 +79,10 @@ print(adata)
 `protdata` is created and maintained by the [Computational Biology Platform](https://www.czbiohub.org/comp-biology/) at the [Chan Zuckerberg Biohub San Francisco](https://www.czbiohub.org/sf/).
 
 To get in touch please use the [GihHub issues](https://github.com/czbiohub-sf/protdata/issues) page.
+
+## Contributing
+
+If you want to contribute to `protdata`, please read the [Contribution Guide](https://prodata.sf.czbiohub.org/contributing)
+
+## Changelog
+See [Release Notes](https://prodata.sf.czbiohub.org/release_notes)
