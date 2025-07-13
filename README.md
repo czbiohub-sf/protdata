@@ -14,6 +14,11 @@ This package provides loader functions to import proteomics data (e.g., MaxQuant
 - **Reads metadata**: Automatically extracts and organizes sample and protein metadata
 
 ## Installation
+
+Protdata has minimal dependencies listed in [pyproject.toml](https://github.com/czbiohub-sf/protdata/blob/main/pyproject.toml)
+
+To install the latest release from PyPI, run:
+
 ```bash
 pip install protdata
 ```
@@ -25,8 +30,6 @@ cd protdata
 pip install -e . # or make setup-develop for developers
 ```
 
-Protdata has minimal dependencies listed in [pyproject.toml](pyproject.toml)
-
 ## Usage Example
 
 ### MaxQuant Import
@@ -37,7 +40,7 @@ import protdata
 
 adata = load_maxquant_to_anndata("/path/to/proteinGroups.txt")
 print(adata)
-``` 
+```
 
 ### DIA-NN Import
 
@@ -76,8 +79,3 @@ print(adata)
 `protdata` is created and maintained by the [Computational Biology Platform](https://www.czbiohub.org/comp-biology/) at the [Chan Zuckerberg Biohub San Francisco](https://www.czbiohub.org/sf/).
 
 To get in touch please use the [GihHub issues](https://github.com/czbiohub-sf/protdata/issues) page.
-
-
-
-
-
