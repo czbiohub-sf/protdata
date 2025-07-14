@@ -3,6 +3,15 @@ Release Notes
 
 This page contains information about protdata releases and changes.
 
+Version 0.1.4
+--------------
+
+**Features**
+
+- Added documentation to the project
+- Added tests
+- Updated links to example files in the README
+
 Version 0.1.3
 --------------
 
