@@ -4,9 +4,19 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/protdata)
 [![docs online](https://img.shields.io/badge/docs-online-blue)](https://protdata-czbiohub.vercel.app/)
 
+<a href="https://prodata.sf.czbiohub.org">
+  <img
+    src="https://raw.githubusercontent.com/czbiohub-sf/protdata/refs/heads/main/docs/source/_static/img/protdata_schema.svg"
+    class="dark-light"
+    align="right"
+    width="150"
+    alt="image"
+  />
+</a>
+
 Proteomics data loaders for the [AnnData](https://anndata.readthedocs.io/) format.
 
-This package provides loader functions to import proteomics data (e.g., MaxQuant) into the AnnData structure for downstream analysis and integration with single-cell and multi-omics workflows.
+This package provides loader functions to import proteomics data (e.g., MaxQuant) into the AnnData structure for downstream analysis and easy integration with single-cell and multi-omics workflows.
 
 ## Features
 
