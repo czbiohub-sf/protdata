@@ -51,17 +51,26 @@ def read_maxquant(
         - ``var``: protein metadata (indexed by protein IDs)
         - ``obs``: sample metadata (indexed by sample names)
         - ``layers``: additional intensity matrices if multiple intensity column prefixes are provided
+
+    Notes
+    -----
+    - The first intensity column prefix is used for the main matrix (X), others are stored as layers if present.
+    - Forward slashes (``/``) are not allowed in hdf5 keys, so they are replaced with underscores (``_``).
     """
     if isinstance(intensity_column_prefixes, str):
         intensity_column_prefixes = [intensity_column_prefixes]
 
-    main_intensity_column = intensity_column_prefixes[0]
     if isinstance(file, pd.DataFrame):
         df = file
     else:
         df = pd.read_csv(file, sep=sep, low_memory=False)
 
+    # Forward slashes are not allowed in hdf5 keys
+    df.columns = df.columns.str.replace("/", "_")
+    intensity_column_prefixes = [x.replace("/", "_") for x in intensity_column_prefixes]
+
     # Find intensity columns
+    main_intensity_column = intensity_column_prefixes[0]
     intensity_cols = [
         col for col in df.columns if col.startswith(main_intensity_column)
     ]
@@ -84,11 +93,11 @@ def read_maxquant(
                 if col in [prefix + sample_name for sample_name in sample_names]
             ]
             if len(prefix_cols) == len(sample_names):
-                # Cannot have '/' in the key (hdf5 interprets as a group for serialization)
-                layers[prefix.strip().replace("/", "_")] = (
-                    df[prefix_cols].to_numpy(dtype=np.float32).T
-                )
+                layers[prefix.strip()] = df[prefix_cols].to_numpy(dtype=np.float32).T
             else:
+                print(prefix_cols)
+                print(len(prefix_cols))
+                print(len(sample_names))
                 warnings.warn(
                     f"Number of columns for prefix '{prefix}' does not match number of samples."
                 )
