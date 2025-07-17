@@ -4,7 +4,7 @@
 ![PyPI - Version](https://img.shields.io/pypi/v/protdata)
 [![docs online](https://img.shields.io/badge/docs-online-blue)](https://protdata-czbiohub.vercel.app/)
 
-<a href="https://prodata.sf.czbiohub.org">
+<a href="https://protdata.sf.czbiohub.org">
   <img
     src="https://raw.githubusercontent.com/czbiohub-sf/protdata/refs/heads/main/docs/source/_static/img/protdata_schema.svg"
     class="dark-light"
@@ -92,7 +92,7 @@ To get in touch please use the [GihHub issues](https://github.com/czbiohub-sf/pr
 
 ## Contributing
 
-If you want to contribute to `protdata`, please read the [Contribution Guide](https://prodata.sf.czbiohub.org/contributing)
+If you want to contribute to `protdata`, please read the [Contribution Guide](https://protdata.sf.czbiohub.org/contributing.html)
 
 ## Changelog
-See [Release Notes](https://prodata.sf.czbiohub.org/release_notes)
+See [Release Notes](https://protdata.sf.czbiohub.org/release_notes.html)
