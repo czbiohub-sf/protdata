@@ -17,21 +17,24 @@ def read_spectronaut(
 
     Parameters
     ----------
-    file : str or file-like
+    file
         Path to the Spectronaut results file.
-    intensity_column : str
+    intensity_columns
         Name of the intensity column.
-    index_columns : str
+    index_column
         Name of the column to use as protein index.
-    sample_column : str
+    sample_column
         Name of the column to use as sample index.
-    sep : str
+    sep
         File separator.
 
     Returns
     -------
-    ad.AnnData
-        AnnData object with X, obs, var, and uns.
+    :class:`anndata.AnnData` object with:
+
+        - ``X``: intensity matrix (samples x proteins)
+        - ``var``: protein metadata (indexed by protein group IDs)
+        - ``obs``: sample metadata (indexed by sample names)
     """
 
     if isinstance(intensity_columns, str):

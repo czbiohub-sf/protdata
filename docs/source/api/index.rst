@@ -24,3 +24,4 @@ Input/Output
    read_fragpipe
    read_diann
    read_mztab
+   read_spectronaut
