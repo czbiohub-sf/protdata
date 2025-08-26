@@ -7,6 +7,7 @@ from protdata.io.diann_loader import read_diann
 from protdata.io.fragpipe_loader import read_fragpipe
 from protdata.io.maxquant_loader import read_maxquant
 from protdata.io.mztab_loader import read_mztab
+from protdata.io.spectronaut_loader import read_spectronaut
 
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../data"))
 
@@ -18,6 +19,7 @@ data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../data"))
         ("combined_protein.tsv", read_fragpipe),
         ("SILAC_SQ.mzTab", read_mztab),
         ("report.pg_matrix.tsv", read_diann),
+        ("spectronaut_normal.tsv", read_spectronaut),
     ],
 )
 def test_loader(filename, loader, tmp_path):
