@@ -64,6 +64,9 @@ poetry.lock
 # VS Code
 .vscode/
 
+# Claude
+CLAUDE.md
+
 # Environments
 .env
 .venv
@@ -78,7 +81,7 @@ venv.bak/
 .spyproject
 
 # Rope project settings
-.ropeproject 
+.ropeproject
 
 # Custom
 test.ipynb
