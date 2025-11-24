@@ -17,7 +17,7 @@ protdata reads proteomics search engine output files into the `AnnData <https://
 Loading MaxQuant Data
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can download an example proteinGroups [file here](https://zenodo.org/records/3774452/files/MaxQuant_Protein_Groups.tabular?download=1)
+You can download an example proteinGroups `file here <https://zenodo.org/records/3774452/files/MaxQuant_Protein_Groups.tabular?download=1>`_
 
 .. code-block:: python
 
@@ -35,7 +35,7 @@ You can download an example proteinGroups [file here](https://zenodo.org/records
 Loading FragPipe Data
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can download an example FragPipe output [file here](https://github.com/Nesvilab/philosopher/blob/master/testdata/combined_protein.tsv?raw=true)
+You can download an example FragPipe output `file here <https://github.com/Nesvilab/philosopher/blob/master/testdata/combined_protein.tsv?raw=true>`_
 
 .. code-block:: python
 
@@ -47,7 +47,7 @@ You can download an example FragPipe output [file here](https://github.com/Nesvi
 Loading DIA-NN Data
 ~~~~~~~~~~~~~~~~~~~
 
-You can download an example DIA-NN report [file here](https://github.com/vdemichev/DiaNN/raw/master/diann-output-examples/report.pg_matrix.tsv)
+You can download an example DIA-NN report `file here <https://github.com/vdemichev/DiaNN/raw/master/diann-output-examples/report.pg_matrix.tsv>`_
 
 .. code-block:: python
 
@@ -59,7 +59,7 @@ You can download an example DIA-NN report [file here](https://github.com/vdemich
 Loading mzTab Data
 ~~~~~~~~~~~~~~~~~~
 
-You can download an example mzTab [file here](https://raw.githubusercontent.com/HUPO-PSI/mzTab/refs/heads/master/examples/1_0-Proteomics-Release/SILAC_SQ.mzTab)
+You can download an example mzTab `file here <https://raw.githubusercontent.com/HUPO-PSI/mzTab/refs/heads/master/examples/1_0-Proteomics-Release/SILAC_SQ.mzTab>`_
 
 .. code-block:: python
 
