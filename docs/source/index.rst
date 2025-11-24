@@ -3,8 +3,8 @@
    :maxdepth: 2
    :hidden:
 
-   api/index
    tutorials/index
+   api/index
    release_notes
    contributing
 
