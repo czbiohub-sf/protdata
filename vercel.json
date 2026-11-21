@@ -1,5 +1,5 @@
 {
   "installCommand": "python3.12 -m venv .venv && .venv/bin/pip install '.[docs]'",
-  "buildCommand": ".venv/bin/sphinx-build -W --keep-going -b html docs/source docs/build/html",
+  "buildCommand": "LC_ALL=C .venv/bin/sphinx-build -W --keep-going -b html docs/source docs/build/html",
   "outputDirectory": "docs/build/html"
 }
