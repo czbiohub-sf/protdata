@@ -62,12 +62,14 @@ issues_github_path = "czbiohub-sf/protdata"
 
 nitpicky = True
 nitpick_ignore = []
+# scanpydoc is deprecated in favour of scverse-doc; silence the notice until we migrate
+suppress_warnings = ["scanpydoc.deprecated"]
 
 intersphinx_mapping = dict(
     python=("https://docs.python.org/3", None),
     numpy=("https://numpy.org/doc/stable", None),
     pandas=("https://pandas.pydata.org/pandas-docs/stable", None),
-    anndata=("https://anndata.readthedocs.io/en/stable/", None),
+    anndata=("https://anndata.scverse.org/en/stable/", None),
     scipy=("https://docs.scipy.org/doc/scipy", None),
     h5py=("https://docs.h5py.org/en/latest", None),
 )
