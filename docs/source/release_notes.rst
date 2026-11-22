@@ -3,6 +3,25 @@ Release Notes
 
 This page contains information about protdata releases and changes.
 
+Version 0.1.5
+--------------
+
+**Features**
+
+- Added support for Spectronaut reports with :func:`protdata.io.read_spectronaut`
+- Added Spectronaut example data and tests
+
+**Bug fixes**
+
+- Fixed h5ad serialization of MaxQuant data: forward slashes (``/``) in column names
+  are replaced with underscores, since hdf5 interprets them as groups
+- Fixed links in the README
+
+**Breaking changes**
+
+- :func:`protdata.io.read_maxquant` now replaces ``/`` with ``_`` in all column names,
+  so ``var`` columns that contained a ``/`` are renamed
+
 Version 0.1.4
 --------------
 
