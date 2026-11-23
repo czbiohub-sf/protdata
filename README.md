@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml/badge.svg)](https://github.com/czbiohub-sf/protdata/actions/workflows/test.yml)
 ![PyPI - Version](https://img.shields.io/pypi/v/protdata)
-[![docs online](https://img.shields.io/badge/docs-online-blue)](https://protdata-czbiohub.vercel.app/)
+[![docs online](https://img.shields.io/badge/docs-online-blue)](https://protdata.sf.czbiohub.org/)
 
 <a href="https://protdata.sf.czbiohub.org">
   <img
@@ -14,7 +14,7 @@
   />
 </a>
 
-Proteomics data loaders for the [AnnData](https://anndata.readthedocs.io/) format.
+Proteomics data loaders for the [AnnData](https://anndata.scverse.org/) format.
 
 This package provides loader functions to import proteomics data (e.g., MaxQuant) into the AnnData structure for downstream analysis and easy integration with single-cell and multi-omics workflows.
 
@@ -86,7 +86,7 @@ print(adata)
 ```
 ## Authors
 
-`protdata` is created and maintained by the [Computational Biology Platform](https://www.czbiohub.org/comp-biology/) at the [Chan Zuckerberg Biohub San Francisco](https://www.czbiohub.org/sf/).
+`protdata` is created and maintained by the [Computational Biology Platform](https://biohub.org/) at the [Chan Zuckerberg Biohub San Francisco](https://biohub.org/).
 
 To get in touch please use the [GihHub issues](https://github.com/czbiohub-sf/protdata/issues) page.
 

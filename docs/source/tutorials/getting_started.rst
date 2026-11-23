@@ -6,7 +6,7 @@ This tutorial will guide you through the basic usage of protdata to load proteom
 Basic Usage
 -----------
 
-protdata reads proteomics search engine output files into the `AnnData <https://anndata.readthedocs.io/>`_ format. All loaders return AnnData objects with a consistent structure:
+protdata reads proteomics search engine output files into the `AnnData <https://anndata.scverse.org/>`_ format. All loaders return AnnData objects with a consistent structure:
 
 - **X**: The main intensity matrix (samples × proteins)
 - **obs**: Sample metadata
@@ -35,7 +35,7 @@ You can download an example proteinGroups [file here](https://zenodo.org/records
 Loading FragPipe Data
 ~~~~~~~~~~~~~~~~~~~~~
 
-You can download an example FragPipe output [file here](https://github.com/Nesvilab/philosopher/blob/master/testdata/combined_protein.tsv?raw=true)
+You can download an example FragPipe output [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/combined_protein.tsv)
 
 .. code-block:: python
 
@@ -47,7 +47,7 @@ You can download an example FragPipe output [file here](https://github.com/Nesvi
 Loading DIA-NN Data
 ~~~~~~~~~~~~~~~~~~~
 
-You can download an example DIA-NN report [file here](https://github.com/vdemichev/DiaNN/raw/master/diann-output-examples/report.pg_matrix.tsv)
+You can download an example DIA-NN report [file here](https://github.com/czbiohub-sf/protdata/raw/main/data/report.pg_matrix.tsv)
 
 .. code-block:: python
 
