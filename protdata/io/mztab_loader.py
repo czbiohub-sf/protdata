@@ -31,15 +31,15 @@ def read_mztab(
         - ``obs``: sample metadata (indexed by sample names)
     """
     if isinstance(file, pd.DataFrame):
+        tables = None
         df = file.copy()
     else:
         tables = mztab.MzTab(file)
         df = tables.protein_table
 
     # Find intensity columns
-    intensity_cols = [
-        col for col in df.columns if col.startswith("protein_abundance_study_variable[")
-    ]
+    prefix = "protein_abundance_study_variable["
+    intensity_cols = [col for col in df.columns if col.startswith(prefix)]
     if not intensity_cols:
         raise ValueError(
             "No columns starting with 'protein_abundance_study_variable' found."
@@ -54,7 +54,13 @@ def read_mztab(
     var = cleanup_obsvar(var)
 
     # Build obs (samples)
-    obs = pd.DataFrame.from_dict(tables.study_variables, orient="index")
+    if tables is not None and tables.study_variables:
+        obs = pd.DataFrame.from_dict(tables.study_variables, orient="index")
+    else:
+        sample_ids = [
+            col.removeprefix(prefix).removesuffix("]") for col in intensity_cols
+        ]
+        obs = pd.DataFrame(index=sample_ids)
     obs.index.name = "sample"
     obs.index = obs.index.astype(str)
     obs = cleanup_obsvar(obs)
